@@ -53,7 +53,7 @@ func Start(ganeshaConfig string) error {
 		}
 	}
 	// Start ganesha.nfsd
-	cmd = exec.Command("ganesha.nfsd", "-L", "/var/log/ganesha.log", "-f", ganeshaConfig)
+	cmd = exec.Command("/ganesha.nfsd", "-L", "/var/log/ganesha.log", "-f", ganeshaConfig, "-N", "NIV_FULL_DEBUG")
 	if out, err := cmd.CombinedOutput(); err != nil {
 		return fmt.Errorf("ganesha.nfsd failed with error: %v, output: %s", err, out)
 	}

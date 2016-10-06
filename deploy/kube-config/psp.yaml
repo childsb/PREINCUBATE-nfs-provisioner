@@ -1,0 +1,19 @@
+kind: PodSecurityPolicy
+apiVersion: extensions/v1beta1
+metadata:
+  name: permissive
+spec:
+  privileged: true
+  seLinux:
+    rule: RunAsAny
+  supplementalGroups:
+    rule: MustRunAs
+    ranges:
+      - min: 5000
+        max: 6000
+  runAsUser:
+    rule: RunAsAny
+  fsGroup:
+    rule: RunAsAny
+  volumes:
+    - "*"
