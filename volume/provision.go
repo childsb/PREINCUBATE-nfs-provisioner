@@ -44,7 +44,7 @@ const (
 	annCreatedBy = "kubernetes.io/createdby"
 	createdBy    = "nfs-dynamic-provisioner"
 
-	// An annotation for the entire ganesha EXPORT block, useful but not needed for
+	// An annotation for the entire ganesha EXPORT block, needed for
 	// deletion.
 	annBlock = "EXPORT_block"
 
@@ -71,7 +71,7 @@ func NewNFSProvisioner(exportDir string, client kubernetes.Interface, useGanesha
 		ranges:        []v1beta1.IDRange{{Min: int64(0), Max: int64(65533)}},
 	}
 
-	// TODO SCC
+	// TODO SCC. use discovery?
 	psp, err := provisioner.getPSP()
 	if err != nil {
 		// TODO is this an error to fail on?
@@ -320,10 +320,7 @@ func (p *nfsProvisioner) generateSupplementalGroup() (int64, error) {
 	if err != nil {
 		return 0, fmt.Errorf("error getting rand value: %v", err)
 	}
-	// return rng.Min + i.Int64(), nil
-	j := i.Int64()
-	j = 777
-	return j, nil
+	return rng.Min + i.Int64(), nil
 }
 
 // ganeshaExport exports the given directory using NFS Ganesha, assuming it is
@@ -361,7 +358,7 @@ func (p *nfsProvisioner) ganeshaExport(path string) (string, int, error) {
 	block = block + "\tPath = " + path + ";\n" +
 		"\tPseudo = " + path + ";\n" +
 		"\tAccess_Type = RW;\n" +
-		"\tSquash = Root_squash;\n" +
+		"\tSquash = root_id_squash;\n" +
 		"\tSecType = sys;\n" +
 		"\tFSAL {\n\t\tName = VFS;\n\t}\n}\n"
 
