@@ -34,12 +34,12 @@ import (
 	"github.com/guelfey/go.dbus"
 	"github.com/openshift/origin/pkg/security/uid"
 	"github.com/wongma7/nfs-provisioner/controller"
-	"k8s.io/client-go/1.4/dynamic"
-	"k8s.io/client-go/1.4/kubernetes"
-	"k8s.io/client-go/1.4/pkg/api/unversioned"
-	"k8s.io/client-go/1.4/pkg/api/v1"
-	"k8s.io/client-go/1.4/pkg/apis/extensions/v1beta1"
-	"k8s.io/client-go/1.4/pkg/runtime"
+	"k8s.io/client-go/1.5/dynamic"
+	"k8s.io/client-go/1.5/kubernetes"
+	"k8s.io/client-go/1.5/pkg/api/unversioned"
+	"k8s.io/client-go/1.5/pkg/api/v1"
+	"k8s.io/client-go/1.5/pkg/apis/extensions/v1beta1"
+	"k8s.io/client-go/1.5/pkg/runtime"
 )
 
 const (

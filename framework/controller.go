@@ -20,10 +20,10 @@ import (
 	"sync"
 	"time"
 
-	"k8s.io/client-go/1.4/pkg/runtime"
-	utilruntime "k8s.io/client-go/1.4/pkg/util/runtime"
-	"k8s.io/client-go/1.4/pkg/util/wait"
-	"k8s.io/client-go/1.4/tools/cache"
+	"k8s.io/client-go/1.5/pkg/runtime"
+	utilruntime "k8s.io/client-go/1.5/pkg/util/runtime"
+	"k8s.io/client-go/1.5/pkg/util/wait"
+	"k8s.io/client-go/1.5/tools/cache"
 )
 
 // Config contains all the settings for a Controller.

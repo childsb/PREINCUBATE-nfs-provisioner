@@ -31,15 +31,15 @@ import (
 
 	// TODO get rid of this and use https://github.com/kubernetes/kubernetes/pull/32718
 	"github.com/wongma7/nfs-provisioner/framework"
-	"k8s.io/client-go/1.4/kubernetes"
-	core_v1 "k8s.io/client-go/1.4/kubernetes/typed/core/v1"
-	"k8s.io/client-go/1.4/pkg/api"
-	"k8s.io/client-go/1.4/pkg/api/v1"
-	"k8s.io/client-go/1.4/pkg/apis/storage/v1beta1"
-	"k8s.io/client-go/1.4/pkg/runtime"
-	"k8s.io/client-go/1.4/pkg/watch"
-	"k8s.io/client-go/1.4/tools/cache"
-	"k8s.io/client-go/1.4/tools/record"
+	"k8s.io/client-go/1.5/kubernetes"
+	core_v1 "k8s.io/client-go/1.5/kubernetes/typed/core/v1"
+	"k8s.io/client-go/1.5/pkg/api"
+	"k8s.io/client-go/1.5/pkg/api/v1"
+	"k8s.io/client-go/1.5/pkg/apis/storage/v1beta1"
+	"k8s.io/client-go/1.5/pkg/runtime"
+	"k8s.io/client-go/1.5/pkg/watch"
+	"k8s.io/client-go/1.5/tools/cache"
+	"k8s.io/client-go/1.5/tools/record"
 
 	"k8s.io/kubernetes/pkg/util/goroutinemap"
 )

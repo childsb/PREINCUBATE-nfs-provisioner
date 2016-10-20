@@ -17,9 +17,9 @@ limitations under the License.
 package controller
 
 import (
-	"k8s.io/client-go/1.4/pkg/api/resource"
-	"k8s.io/client-go/1.4/pkg/api/unversioned"
-	"k8s.io/client-go/1.4/pkg/api/v1"
+	"k8s.io/client-go/1.5/pkg/api/resource"
+	"k8s.io/client-go/1.5/pkg/api/unversioned"
+	"k8s.io/client-go/1.5/pkg/api/v1"
 )
 
 // Provisioner is an interface that creates templates for PersistentVolumes
@@ -36,7 +36,7 @@ type Provisioner interface {
 }
 
 // VolumeOptions contains option information about a volume
-// https://github.com/kubernetes/kubernetes/blob/release-1.4/pkg/volume/plugins.go
+// https://github.com/kubernetes/kubernetes/blob/release-1.5/pkg/volume/plugins.go
 type VolumeOptions struct {
 	// Capacity is the size of a volume.
 	Capacity resource.Quantity

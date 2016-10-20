@@ -17,14 +17,14 @@ limitations under the License.
 package controller
 
 import (
-	"k8s.io/client-go/1.4/kubernetes/fake"
-	"k8s.io/client-go/1.4/pkg/api"
-	"k8s.io/client-go/1.4/pkg/api/resource"
-	"k8s.io/client-go/1.4/pkg/api/testapi"
-	"k8s.io/client-go/1.4/pkg/api/v1"
-	"k8s.io/client-go/1.4/pkg/apis/storage/v1beta1"
-	"k8s.io/client-go/1.4/pkg/runtime"
-	"k8s.io/client-go/1.4/pkg/types"
+	"k8s.io/client-go/1.5/kubernetes/fake"
+	"k8s.io/client-go/1.5/pkg/api"
+	"k8s.io/client-go/1.5/pkg/api/resource"
+	"k8s.io/client-go/1.5/pkg/api/testapi"
+	"k8s.io/client-go/1.5/pkg/api/v1"
+	"k8s.io/client-go/1.5/pkg/apis/storage/v1beta1"
+	"k8s.io/client-go/1.5/pkg/runtime"
+	"k8s.io/client-go/1.5/pkg/types"
 
 	"reflect"
 	"testing"

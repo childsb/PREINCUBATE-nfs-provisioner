@@ -28,14 +28,14 @@ import (
 	"github.com/wongma7/nfs-provisioner/server"
 	vol "github.com/wongma7/nfs-provisioner/volume"
 
-	"k8s.io/client-go/1.4/dynamic"
-	"k8s.io/client-go/1.4/kubernetes"
-	"k8s.io/client-go/1.4/pkg/api/unversioned"
-	"k8s.io/client-go/1.4/pkg/util/validation"
-	"k8s.io/client-go/1.4/pkg/util/validation/field"
-	"k8s.io/client-go/1.4/pkg/util/wait"
-	"k8s.io/client-go/1.4/rest"
-	"k8s.io/client-go/1.4/tools/clientcmd"
+	// "k8s.io/client-go/1.5/dynamic"
+	"k8s.io/client-go/1.5/kubernetes"
+	// "k8s.io/client-go/1.5/pkg/api/unversioned"
+	"k8s.io/client-go/1.5/pkg/util/validation"
+	"k8s.io/client-go/1.5/pkg/util/validation/field"
+	"k8s.io/client-go/1.5/pkg/util/wait"
+	"k8s.io/client-go/1.5/rest"
+	"k8s.io/client-go/1.5/tools/clientcmd"
 )
 
 var (
@@ -87,13 +87,13 @@ func main() {
 	if err != nil {
 		glog.Fatalf("Failed to create client: %v", err)
 	}
-	clientPool := dynamic.NewClientPool(config, dynamic.LegacyAPIPathResolverFunc)
-	dynamicClient, err := clientPool.ClientForGroupVersion(unversioned.GroupVersion{Group: "", Version: "v1"})
-	if err != nil {
-		glog.Fatalf("Failed to create dynamic client: %v", err)
-	}
+	// clientPool := dynamic.NewClientPool(config, dynamic.LegacyAPIPathResolverFunc)
+	// dynamicClient, err := clientPool.ClientForGroupVersion(unversioned.GroupVersion{Group: "", Version: "v1"})
+	// if err != nil {
+	// 	glog.Fatalf("Failed to create dynamic client: %v", err)
+	// }
 
-	nfsProvisioner := vol.NewNFSProvisioner("/export/", clientset, dynamicClient, *useGanesha, ganeshaConfig)
+	nfsProvisioner := vol.NewNFSProvisioner("/export/", clientset, nil, *useGanesha, ganeshaConfig)
 
 	// Start the provision controller which will dynamically provision NFS PVs
 	pc := controller.NewProvisionController(clientset, 15*time.Second, *provisioner, nfsProvisioner)
@@ -101,7 +101,7 @@ func main() {
 }
 
 // validateProvisioner tests if provisioner is a valid qualified name.
-// https://github.com/kubernetes/kubernetes/blob/release-1.4/pkg/apis/storage/validation/validation.go
+// https://github.com/kubernetes/kubernetes/blob/release-1.5/pkg/apis/storage/validation/validation.go
 func validateProvisioner(provisioner string, fldPath *field.Path) field.ErrorList {
 	allErrs := field.ErrorList{}
 	if len(provisioner) == 0 {

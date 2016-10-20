@@ -20,5 +20,5 @@ github.com/spf13/pflag	bf8481a
 github.com/ugorji/go	faddd61
 golang.org/x/net	8b4af36
 gopkg.in/inf.v0	v0.9.0
-k8s.io/client-go	f8e519f
+k8s.io/client-go 4e647cd
 k8s.io/kubernetes	v1.5.0-alpha.0-2383-gdd529f3
